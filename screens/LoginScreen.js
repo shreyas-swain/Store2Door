@@ -3,9 +3,10 @@ import { View, Text, Image, TouchableOpacity, TextInput } from 'react-native'
 import {SafeAreaView} from 'react-native-safe-area-context'
 // import { TextInput } from 'react-native-gesture-handler';
 // import Icon from 'react-native-vector-icons/FontAwesome'
-import { Ionicons } from 'react-native-vector-icons/Ionicons'
+import { Ionicons } from "@expo/vector-icons";
 import { Octicons } from "@expo/vector-icons"
 import { AuthContext } from "../AuthProvider"
+import RegisterScreen from './RegisterScreen';
 
 const LoginScreen = ({ navigation }) => {
   
@@ -51,6 +52,7 @@ const LoginScreen = ({ navigation }) => {
     //   </SafeAreaView>
         
         <View className="flex-1 bg-white" style={{backgroundColor: "#819CEF"}}>
+
           <SafeAreaView className="flex">
             <View className="flex-row justify-start">
               <TouchableOpacity
@@ -59,15 +61,20 @@ const LoginScreen = ({ navigation }) => {
               >
                 <Ionicons name="ios-arrow-back" size={20} color="black" />
               </TouchableOpacity>
+              <TouchableOpacity className="mt-2">
+                <Text className="pl-8 text-gray-900 rounded-xl ml-20 text-2xl font-bold">Sign In</Text>
+              </TouchableOpacity>
             </View>
             <View className="flex-row justify-center">
-              <Image source={require('../assets/login.jpg')} style={{margin: 20, width: 220, height: 220}} />
+              <Image source={require('../assets/login-removebg.png')} style={{marginBottom: 10, width: 220, height: 220}} />
             </View>
           </SafeAreaView>
+
           <View className="flex-1 bg-white px-8 pt-8"
             style={{borderTopLeftRadius: 50, borderTopRightRadius: 50}}
           >
             <View className="form space-y-2">
+
               <View>
                 <Text className="text-gray-700 ml-4 mb-2">Email Address</Text>
                 <TextInput
@@ -82,6 +89,7 @@ const LoginScreen = ({ navigation }) => {
                   onChangeText={(text) => setEmail(text)}
                 />
               </View>
+
               <View>
                 <Text className="text-gray-700 ml-4 mb-2">Password</Text>
                 <TextInput
@@ -104,29 +112,36 @@ const LoginScreen = ({ navigation }) => {
                 />
                 {/* <Icon name="eye-slash" size={30} color="black" /> */}
               </View>
+
               <TouchableOpacity className="flex items-end mb-4">
                 <Text className="text-gray-700">Forgot Password?</Text>
               </TouchableOpacity>
+
               <TouchableOpacity className="py-3 bg-yellow-400 rounded-xl">
                 <Text className="text-l font-bold text-center text-gray-700">
                   Login
                 </Text>
               </TouchableOpacity>
+
             </View>
+
             <Text className="text-l text-gray-700 font-bold text-center text--uppercase py-2">
               OR
             </Text>
+
             <View className="flex-row justify-center space-x-12">
               <TouchableOpacity className="bg-gray-100 rounded-xl justify-center flex items-center" style={{width: 320, height: 50}}>
                 <Image source={require("../assets/google.png")} className="w-14 h-12"/>
               </TouchableOpacity>
             </View>
+
             <View className="flex-row justify-center mt-7">
               <Text className="text-gray-700 font-semibold">Don't have an account?</Text>
-                <TouchableOpacity onPress={()=>navigation.navigate('SignupScreen')}>
+                <TouchableOpacity onPress={()=>navigation.navigate(RegisterScreen)}>
                   <Text className="font-semibold text-yellow-400">Sign Up</Text>
                 </TouchableOpacity>
             </View>
+            
           </View>
         </View>
 

@@ -151,6 +151,7 @@ const Business = ({route}) => {
 
 
     return (
+
       <View style={{ paddingTop: 30 }}>
         {/* bg img */}
         <View style={styles.container}>
@@ -192,11 +193,11 @@ const Business = ({route}) => {
         >
           <View>
             <Text style={{ fontSize: 25, fontWeight: "bold" }}>
-              {storeData["shopName"]}
+              {storeData["shopName"] == "" ? "Shop Name" : storeData["shopName"]}
               {/* shopName */}
             </Text>
             <Text style={{ fontSize: 14, color: "gray" }}>
-              {storeData["mallName"]}
+              {storeData["mallName"] == "" ? "Mall Name" : storeData["mallName"]}
               {/* mallName */}
             </Text>
             <View style={{ marginTop: 10, flexDirection: "row", gap: 10 }}>
@@ -258,6 +259,7 @@ const Business = ({route}) => {
     );
   }
 
+  export default Business
 
   const styles = StyleSheet.create({
     backArrow: {

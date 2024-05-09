@@ -6,6 +6,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 
 const Categories = () => {
+
     return (
         <View style={styles.container}>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -26,6 +27,7 @@ const Categories = () => {
             </ScrollView>
         </View>
     )
+    
 }
 
 export default Categories

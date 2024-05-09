@@ -1,14 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  StatusBar,
-  TextInput,
-  FlatList,
-  Image,
-  ScrollView,
-  Dimensions,
-} from "react-native";
+import { StyleSheet, Text, View, StatusBar, TextInput, FlatList, Image, ScrollView, Dimensions, } from "react-native";
 import React, { useEffect, useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
 import HomeHeadNav from "../components/HomeHeadNav";

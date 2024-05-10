@@ -93,7 +93,7 @@ const HomeScreen = ({ navigation }) => {
         </View>
       </View>
         
-      <View style={{backgroundColor: "lightyellow"}}>
+      <View style={{backgroundColor: "#ACBDAA"}}>
       <ScrollView style={{marginBottom: 180,paddingBottom: 100, marginTop:5, paddingTop:15, borderTopLeftRadius: 25, borderTopRightRadius: 25, backgroundColor: "lightgrey"}} showsScrollIndicator="false">
 
         <Categories onSelectCategory={handleCategorySelect} />
@@ -143,11 +143,11 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "lightyellow",
+    backgroundColor: "#ACBDAA",
     paddingTop: 10,
   },
   top: {
-    backgroundColor: "lightyellow",
+    backgroundColor: "#ACBDAA",
   },
   searchbox: {
     flexDirection: "row",

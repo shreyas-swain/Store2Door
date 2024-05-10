@@ -90,18 +90,18 @@ import { db } from "../firebase";
           </View>
           <View className="justify-center mr-4">
             <View className="align-center justify-center">
-              <View className="items-center justify-center bg-yellow-400 rounded-full" style={{width: 70, height: 70}}>
+              <View className="items-center justify-center rounded-full" style={{width: 70, height: 70, backgroundColor: '#1E2D4C'}}>
                 <Text
-                  style={{ fontWeight: "bold", fontSize: 15, color: "black" }}
+                  style={{ fontWeight: "bold", fontSize: 15, color: "white" }}
                 >
                   {storeData.length}
                 </Text>
-                <Text style={{ color: "black" }}>shops</Text>
+                <Text style={{ color: "white" }}>shops</Text>
               </View>
             </View>
           </View>
         </View>
-        <ScrollView style={{borderTopLeftRadius: 20, borderTopRightRadius: 20, backgroundColor: 'lightyellow'}} className="bg-blue pt-2">
+        <ScrollView style={{borderTopLeftRadius: 20, borderTopRightRadius: 20, backgroundColor: 'lightgrey'}} className="bg-blue pt-2">
           <Text style={{ paddingHorizontal: 20, fontSize: 20, fontWeight: "bold" }}>
             Store List
           </Text>

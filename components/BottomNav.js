@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         alignItems: 'baseline',
-        backgroundColor: 'white',
+        backgroundColor: '#ACBDAA',
         width: '100%',
         elevation: 30,
         borderTopColor: colors.text1,

@@ -2,7 +2,7 @@ module.exports = {
     colors: {
         bgcolor: '#eae2b7',
         col1: 'white',
-        text1: 'red',
+        text1: '#1E2D4C',
         text2: 'grey',
         text3: 'black',
         textgreen: 'green',

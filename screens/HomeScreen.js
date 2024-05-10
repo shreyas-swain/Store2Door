@@ -10,6 +10,7 @@ import OfferSlider from "../components/OfferSlider";
 import { colors } from "../globals/style";
 // import { createDrawerNavigator } from '@react-navigation/drawer'
 // import { NavigationContainer } from '@react-navigation/native'
+// import DrawerContent from "../components/DrawerContent";
 // import firebase from 'firebase'
 import { db } from "../firebase.js";
 import { collection, getDocs } from "firebase/firestore";
@@ -72,66 +73,68 @@ const HomeScreen = ({ navigation }) => {
     <View styles={styles.container}>
       <StatusBar />
 
-<View style={{zIndex:1}}>
-      <HomeHeadNav /></View>
+      <View style={styles.top}>
+        {/* <View style={{zIndex:1}}>
+          <HomeHeadNav />
+        </View> */}
 
-      <ScrollView style={{marginBottom:100}}>
         <View style={styles.searchbox}>
           <AntDesign
             name="search1"
             size={24}
             color="black"
             style={styles.searchicon}
-          />
+        />
           <TextInput
             style={styles.input}
             placeholder="Search"
-            onChangeText={(text) => {
-              handleSearch(text);
-            }}
+            onChangeText={(text) => { handleSearch(text);}}
           />
         </View>
+      </View>
+        
+      <View style={{backgroundColor: "lightyellow"}}>
+      <ScrollView style={{marginBottom: 180,paddingBottom: 100, marginTop:5, paddingTop:15, borderTopLeftRadius: 25, borderTopRightRadius: 25, backgroundColor: "lightgrey"}} showsScrollIndicator="false">
 
         <Categories onSelectCategory={handleCategorySelect} />
 
         <OfferSlider />
 
-        {search != "" && (
-          <View style={styles.seacrhresultsouter}>
-            <FlatList
-              style={styles.searchresultsinner}
-              data={storeData}
-              renderItem={({ item }) => {
-                if (
-                  item.storeName.toLowerCase().includes(search.toLowerCase())
-                ) {
-                  return (
-                    <View style={styles.searchresult}>
-                      <AntDesign name="arrowright" size={24} color="black" />
-                      <Text style={styles.searchresulttext}>
-                        {item.storeName}
-                      </Text>
-                    </View>
-                  );
-                }
-              }}
-            />
-          </View>
-        )}
+          {search != "" && (
+            <View style={styles.seacrhresultsouter}>
+              <FlatList
+                style={styles.searchresultsinner}
+                data={storeData}
+                renderItem={({ item }) => {
+                  if (
+                    item.storeName.toLowerCase().includes(search.toLowerCase())
+                  ) {
+                    return (
+                      <View style={styles.searchresult}>
+                        <AntDesign name="arrowright" size={24} color="black" />
+                        <Text style={styles.searchresulttext}>
+                          {item.storeName}
+                        </Text>
+                      </View>
+                    );
+                  }
+                }}
+              />
+            </View>
+          )}
 
-        <Cardslider
-          data={filteredStoreData.length > 0 ? filteredStoreData : storeData}
-          navigation={navigation}
-        />
+          <Cardslider
+            data={filteredStoreData.length > 0 ? filteredStoreData : storeData}
+            navigation={navigation}
+          />
       </ScrollView>
+      </View>
 
       <View style={styles.bottomnav}>
         <BottomNav navigation={navigation} />
       </View>
     </View>
-    //     )} />
-    //   </Drawer.Navigator>
-    // </NavigationContainer>
+
   );
 };
 
@@ -140,8 +143,11 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.bgcolor,
-    // paddingTop: 10,
+    backgroundColor: "lightyellow",
+    paddingTop: 10,
+  },
+  top: {
+    backgroundColor: "lightyellow",
   },
   searchbox: {
     flexDirection: "row",
@@ -150,7 +156,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: "center",
     padding: 10,
-    margin: 20,
+    margin: 10,
     elevation: 5,
     alignSelf: "center",
   },
@@ -165,7 +171,7 @@ const styles = StyleSheet.create({
   },
   seacrhresultsouter: {
     flex: 1,
-    backgroundColor: colors.col1,
+    backgroundColor: "orange",
     paddingHorizontal: 30,
   },
   searchresultsinner: {
@@ -182,9 +188,10 @@ const styles = StyleSheet.create({
   },
   bottomnav: {
     position: "absolute",
-    bottom: 50,
+    // bottom: 0,
+    top: "84%",
     width: "100%",
-    backgroundColor: colors.col1,
+    // backgroundColor: colors.col1,
     zIndex: 20,
   },
 });

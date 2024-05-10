@@ -7,22 +7,22 @@ import { colors } from '../globals/style'
 
 const OfferSlider = () => {
     return (
-        <View>
+        <View style={{padding: 5}}>
             <View style={styles.offerSlider}>
-                <Swiper autoplay={true} autoplayTimeout={5} showsButtons={true}
+                <Swiper autoplay={true} autoplayTimeout={5} showsButtons={false}
                     dotColor={colors.text2} activeDotColor={colors.text1}
-                    nextButton={<Text style={styles.buttonText}>{'>'}</Text>}
-                    prevButton={<Text style={styles.buttonText}>{'<'}</Text>}
+                    // style={{height: 210}}
+                    // nextButton={<Text style={styles.buttonText}>{'>'}</Text>}
+                    // prevButton={<Text style={styles.buttonText}>{'<'}</Text>}
                 >
-
                     <View style={styles.slide}>
-                        <Image source={require('../assets/OfferSliderImages/img1.png')} style={styles.image} />
+                        <Image source={require('../assets/OfferSliderImages/mega_sale.jpg')} style={styles.image} />
                     </View>
                     <View style={styles.slide}>
-                        <Image source={require('../assets/OfferSliderImages/img2.png')} style={styles.image} />
+                        <Image source={require('../assets/OfferSliderImages/black_friday_sale.jpg')} style={styles.image} />
                     </View>
                     <View style={styles.slide}>
-                        <Image source={require('../assets/OfferSliderImages/img3.png')} style={styles.image} />
+                        <Image source={require('../assets/OfferSliderImages/random_sale.jpg')} style={styles.image} />
                     </View>
                 </Swiper>
             </View>
@@ -36,8 +36,8 @@ const styles = StyleSheet.create({
     offerSlider: {
         width: '100%',
         height: 200,
-        backgroundColor: colors.col1,
-        paddingHorizontal: 10,
+        // backgroundColor: colors.col1,
+        paddingHorizontal: 5,
         justifyContent: 'center',
         alignItems: 'center',
         marginVertical: 10,
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     slide: {
         width: '100%',
         height: 200,
-        backgroundColor: colors.col1,
+        // backgroundColor: colors.col1,
         justifyContent: 'center',
         alignItems: 'center',
     },

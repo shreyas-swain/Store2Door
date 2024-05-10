@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { AntDesign } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
@@ -7,18 +7,18 @@ import { FontAwesome5 } from '@expo/vector-icons';
 const BottomNav = ({ navigation }) => {
     return (
         <View style={styles.container}>
-            <View style={styles.btncon1}>
+            <TouchableOpacity style={styles.btncon1}>
                 <AntDesign name="home" size={30} color="black" style={styles.icon1} onPress={() => { navigation.navigate('home') }} />
-            </View>
-            <View style={styles.btncon2} >
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.btncon2} >
                 <Ionicons name="search" size={30} color="black" style={styles.icon2} onPress={() => { navigation.navigate('home') }} />
-            </View>
-            <View style={styles.btncon1} >
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.btncon1} >
                 <AntDesign name="shoppingcart" size={30} color="black" style={styles.icon1} onPress={() => { navigation.navigate('cart') }} />
-            </View>
-            <View style={styles.btncon1} >
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.btncon1} >
                 <FontAwesome5 name="map-marked-alt" size={30} color="black" style={styles.icon1} onPress={() => { navigation.navigate('trackorders') }} />
-            </View>
+            </TouchableOpacity>
         </View>
     )
 }
@@ -35,8 +35,11 @@ const styles = StyleSheet.create({
         elevation: 30,
         borderTopColor: colors.text1,
         borderTopWidth: 0.5,
-        borderTopEndRadius: 20,
-        borderTopStartRadius: 20,
+        borderTopLeftRadius: 25,
+        borderTopRightRadius: 25,
+        bottom: 0,
+        left: 0,
+        right: 0,
     },
     btncon1: {
         alignItems: 'center',

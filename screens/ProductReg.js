@@ -32,6 +32,7 @@ import {
     const [productAmt, setProductAmt] = useState(0);
     const [productImage, setProductImage] = useState(null);
     const [productDesc, setProductDesc] = useState("");
+    const [productCat, setProductCat] = useState("");
     const [value, setValue] = useState(null);
     const [isFocus, setIsFocus] = useState(false);
   
@@ -42,6 +43,7 @@ import {
         productName: productName,
         productPrice: productPrice,
         productAmt: productAmt,
+        productCat: productCat,
         productDesc: productDesc,
         shopId: JSON.parse(data)["shopid"],
         productPfp: productImage
@@ -182,8 +184,8 @@ import {
               onFocus={() => setIsFocus(true)}
               onBlur={() => setIsFocus(false)}
               onChange={(item) => {
-                setValue(item.value);
-                setIsFocus(false);
+                setProductCat(item.value)
+                console.log(productCat)
               }}
               renderLeftIcon={() => (
                 <AntDesign

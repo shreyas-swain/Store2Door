@@ -1,16 +1,7 @@
-import {
-    Image,
-    ScrollView,
-    StyleSheet,
-    Text,
-    View,
-    Pressable,
-    TextInput,
-    Alert,
-  } from "react-native";
-  import React from "react";
-  import { useState, useEffect } from "react";
-  import OrderCard from "../components/OrderCard.js";
+import { Image, ScrollView, StyleSheet, Text, View, Pressable, TextInput, Alert,} from "react-native";
+import React from "react";
+import { useState, useEffect } from "react";
+import OrderCard from "../components/OrderCard.js";
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase.js";
   

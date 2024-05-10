@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import CartItem from "../components/CartItem";
 import { btn2, colors, navbtn, navbtnin } from "../globals/style";

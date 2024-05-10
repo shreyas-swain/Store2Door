@@ -1,21 +1,20 @@
-import {
-    StyleSheet,
-    Text,
-    View,
-    Animated,
-    TouchableOpacity,
-  } from "react-native";
-  import React, { useState } from "react";
-  import { Fontisto } from "@expo/vector-icons";
-  import { MaterialCommunityIcons } from "@expo/vector-icons";
-  import { FontAwesome5 } from "@expo/vector-icons";
-  import { Entypo } from '@expo/vector-icons';
-  import { AntDesign } from "@expo/vector-icons";
-  import { colors } from "../globals/style";
-import { useNavigation } from "@react-navigation/native";
+import { StyleSheet, Text, View, Animated, TouchableOpacity, } from "react-native";
+import React, { useState } from "react";
+import { Fontisto } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons";
+import { Entypo } from '@expo/vector-icons';
+import { AntDesign } from "@expo/vector-icons";
+import { colors } from "../globals/style";
+import { useNavigation } from "@react-navigation/native"
+import { NavigationContainer } from '@react-navigation/native'
+import { createDrawerNavigator} from '@react-navigation/drawer'
+import HomeScreen from "../screens/HomeScreen";
 //   import Sidebar from "./Sidebar";
+// const Drawer = createDrawerNavigator();
   
   const HomeHeadNav = () => {
+
     const navigation = useNavigation();
     const [slideAnim] = useState(new Animated.Value(-200)); // Set initial value to keep the view off-screen
     const [isSlided, setIsSlided] = useState(false);
@@ -28,6 +27,7 @@ import { useNavigation } from "@react-navigation/native";
       }).start();
       setIsSlided(!isSlided);
     };
+
     const slideStyles = {
       transform: [
         {
@@ -36,39 +36,47 @@ import { useNavigation } from "@react-navigation/native";
       ],
     };
     return (
+
       <View style={styles.container}>
-          <Animated.View style={[styles.box, slideStyles]}>
+        {/* <Animated.View style={[styles.box, slideStyles]}>
           <View style={styles.menuContainer}>
               <TouchableOpacity onPress={toggleSlide} style={styles.closeButton}>
-              <Entypo name="squared-cross" size={24} color="black" />
+                <Entypo name="squared-cross" size={24} color="black" />
               </TouchableOpacity>
+
               <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-              <Text style={styles.menuItem} >
-              Home
-              <MaterialCommunityIcons name="home-outline" size={26} color="black" />
-              </Text>
+                <Text style={styles.menuItem} >Home
+                  <MaterialCommunityIcons name="home-outline" size={26} color="black" />
+                </Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate("RegisterBusiness")}>
-              <Text style={styles.menuItem}  >
-              Business Page
-              <MaterialCommunityIcons name="office-building" size={26} color="black" />
-              </Text>
+
+              <TouchableOpacity onPress={() => navigation.navigate("AddProduct")}>
+                <Text style={styles.menuItem} >Business Page
+                  <MaterialCommunityIcons name="office-building" size={26} color="black" />
+                </Text>
               </TouchableOpacity>
+
               <TouchableOpacity onPress={() => navigation.navigate("Mall")}>
-              <Text style={styles.menuItem} >
-              Mall Page
-              <MaterialCommunityIcons name="office-building" size={26} color="black" />
-              </Text>
+                <Text style={styles.menuItem} >Mall Page
+                  <MaterialCommunityIcons name="office-building" size={26} color="black" />
+                </Text>
               </TouchableOpacity>
-              <Text style={styles.menuItem}>
-              Your Orders
-              <MaterialCommunityIcons name="cart" size={26} color="black" />
+
+              <Text style={styles.menuItem}>Your Orders
+                <MaterialCommunityIcons name="cart" size={26} color="black" />
               </Text>
+
               <Text style={styles.menuItem}>Signout
-              <MaterialCommunityIcons name="logout" size={24} color="black" />
+                <MaterialCommunityIcons name="logout" size={24} color="black" />
               </Text>
           </View>
-          </Animated.View>
+        </Animated.View> */}
+
+        {/* <NavigationContainer>
+          <Drawer.Navigator initialRouteName="Home">
+            <Drawer.Screen name="Home" component={HomeScreen} />
+          </Drawer.Navigator>
+        </NavigationContainer> */}
   
         <TouchableOpacity onPress={toggleSlide}>
           <Fontisto
@@ -78,6 +86,7 @@ import { useNavigation } from "@react-navigation/native";
             style={styles.myicon}
           />
         </TouchableOpacity>
+
         <View style={styles.containerin}>
           <Text style={styles.mytext}>Store2Door</Text>
           <MaterialCommunityIcons
@@ -87,6 +96,7 @@ import { useNavigation } from "@react-navigation/native";
             style={styles.myicon}
           />
         </View>
+
         <TouchableOpacity
           onPress={() => {
             navigation.navigate("userprofile");
@@ -99,6 +109,7 @@ import { useNavigation } from "@react-navigation/native";
             style={styles.myicon}
           />
         </TouchableOpacity>
+
       </View>
     );
   };
@@ -112,10 +123,8 @@ import { useNavigation } from "@react-navigation/native";
       justifyContent: "space-between",
       padding: 10,
       alignItems: "center",
-      backgroundColor: colors.col1,
-      elevation: 20,
-      borderBottomLeftRadius: 20,
-      borderBottomRightRadius: 20,
+      backgroundColor: "lightyellow",
+      // elevation: 20,
     },
     box: {
       width: 150,
@@ -126,7 +135,6 @@ import { useNavigation } from "@react-navigation/native";
       zIndex: 1,
       backgroundColor: '#f7f7f7',
       shadowOffset: { width: 0, height: 2 },
-      shadowOpacity: 0.3,
       shadowRadius: 4,
       elevation: 5,
     },
@@ -153,12 +161,6 @@ import { useNavigation } from "@react-navigation/native";
       marginTop: 20,
       paddingLeft: 0,
       paddingBottom: 0,
-      // marginBottom: 20,
-      // shadowColor: '#000',
-      // shadowOffset: { width: 0, height: 2 },
-      // shadowOpacity: 0.3,
-      // shadowRadius: 4,
-      // elevation: 3, // Android shadow
     },
     
     menuItem: {

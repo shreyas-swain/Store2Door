@@ -56,13 +56,13 @@ import { db } from "../firebase";
         {/* bg img */}
         <View>
           <ImageBackground
-            style={{ height: 275, width: "100%"}}
+            style={{ height: 250, width: "100%"}}
             source={require("../assets/defaultMall.jpg")}
           >
             <View className="flex-row justify-start pt-6">
               <TouchableOpacity
                 onPress={()=>navigation.goBack()}
-                className="bg-yellow-400 p-2 rounded-tr-2xl rounded-bl-2xl ml-4 mt-2"
+                className="bg-yellow-400 p-2 rounded-tr-xl rounded-bl-xl ml-4 mt-2"
               >
                 <Ionicons name="ios-arrow-back" size={20} color="black" />
               </TouchableOpacity>
@@ -101,16 +101,16 @@ import { db } from "../firebase";
             </View>
           </View>
         </View>
-        <View style={{borderTopLeftRadius: 20, borderTopRightRadius: 20}} className="bg-gray pt-2">
+        <ScrollView style={{borderTopLeftRadius: 20, borderTopRightRadius: 20, backgroundColor: 'lightyellow'}} className="bg-blue pt-2">
           <Text style={{ paddingHorizontal: 20, fontSize: 20, fontWeight: "bold" }}>
             Store List
           </Text>
-          <ScrollView style={{ paddingHorizontal: 20, height: "65%" }}>
+          <View style={{ paddingHorizontal: 20, height: "65%" }}>
             {storeData.map((data) => (
               <ShopCard shopName={data['shopName']} review={'4'} pfp={data['pfp']} shopId={data['id']}/>
             ))}
-          </ScrollView>
-        </View>
+          </View>
+        </ScrollView>
         
       </View>
     );

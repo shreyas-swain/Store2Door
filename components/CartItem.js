@@ -33,7 +33,7 @@ const CartItem = ({ item, updateQuantity, deleteItem }) => {
       <View style={styles.cartcardin}>
         <View style={styles.c1}>
           <Text style={styles.txt1}>
-            {quantity}×&nbsp;{item['productName']}
+            {quantity}x&nbsp;{item['productName']}
           </Text>
           <Text style={styles.txt2}>₹{item['productPrice']* quantity}/-</Text>
         </View>

@@ -5,23 +5,31 @@ import OrderCard from "../components/OrderCard.js";
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase.js";
   
-  const OrderPage = ({route}) => {
+  const OrderPage = ({navigation, route}) => {
     const [delDate, setDelDate] = useState("");
     const [orderAmt, setOrderAmt] = useState("0");
     const [totPrice, setTotPrice] = useState("0");
     const [orderIds, setOrderIds] = useState([]);
     const [customerAddr, setCustomerAddr] = useState("");
-    const [product, setProduct] = useState({})
+    // const [product, setProduct] = useState({})
     const [orderId, setOrderId] = useState('')
 
-    useEffect(() => {
-        setProduct(route.params['product'])
-        const postOrder = async () => {
-            const orderRef = await addDoc(collection(db, "Orders"), product)
-            console.log(orderRef.id+' order id')
-            setOrderId(orderRef.id)
-        }
-      });
+    const product = 
+      { 
+        productName: 'Kissan Ketchup',
+        productPfp: require('../assets/Products/kissan.jpeg'),
+        productPrice: 100,
+        productDesc: "Thi is a ketchup"
+      };
+
+    // useEffect(() => {
+    //     setProduct(route.params['product'])
+    //     const postOrder = async () => {
+    //         const orderRef = await addDoc(collection(db, "Orders"), product)
+    //         console.log(orderRef.id+' order id')
+    //         setOrderId(orderRef.id)
+    //     }
+    //   });
   
     return (
       <ScrollView style={{ paddingHorizontal: 30 }}>
@@ -45,7 +53,7 @@ import { db } from "../firebase.js";
             </Text>
           </View>
           <View style={styles.horizontalLine} />
-          <Text>You have ordered {orderAmt} products</Text>
+          <Text>You have ordered 1 products</Text>
           <View style={{ paddingHorizontal: 20, marginBottom: 50 }}>
               <OrderCard key={product['id']} orderId={product} />
           </View>
@@ -84,7 +92,8 @@ import { db } from "../firebase.js";
         />
         <View style={styles.horizontalLine} />
         <Pressable
-        onPress={() => Alert.alert('Order Confirmed and placed')}
+        onPress={() => {Alert.alert('Order Confirmed and placed');
+        navigation.navigate('OrderTrack')}}
           style={({ pressed }) => [
             styles.button,
             { backgroundColor: pressed ? "gray" : "black" },

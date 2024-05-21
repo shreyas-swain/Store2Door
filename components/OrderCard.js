@@ -24,7 +24,7 @@ const OrderCard = ({ orderId }) => {
         <Image
           style={styles.pfpImg}
           source={
-            pfp == null ? require("../assets/defaultPfp.jpg") : { uri: pfp }
+            pfp
           }
         />
       </View>

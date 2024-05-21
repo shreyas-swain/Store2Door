@@ -46,12 +46,12 @@ const UserCart = ({ navigation, route }) => {
       </TouchableOpacity>
       <Text style={styles.head1}>Your Bag</Text>
       <View style={styles.cartout}>
-        <CartItem
+        {/* <CartItem
           key={product['id']}
           item={product}
           updateQuantity={updateQuantity}
           deleteItem={deleteItem}
-        />
+        /> */}
       </View>
       <View style={styles.btncont}>
         <Text style={styles.txt5}>Total:</Text>

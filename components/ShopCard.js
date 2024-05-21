@@ -10,7 +10,7 @@ const ShopCard = ({ shopName, review, pfp,shopId }) => {
   const navigation=useNavigation();
   const shopClick=()=>{
     console.log(shopId)
-    navigation.navigate("Business",{id:shopId});
+    navigation.navigate("Business");
   };
 
 

@@ -13,7 +13,7 @@ import OrderTrack from './screens/OrderTrack';
 import RegisterBusiness from './screens/RegisterBusiness'
 import { AuthContext } from './AuthProvider';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import ProductReg from './screens/ProductReg';
+// import ProductReg from './screens/ProductReg';
 // import ProductCrud from './screens/ProductCrud';
 import MallPage from './screens/MallPage';
 import Business from './screens/Business'
@@ -58,13 +58,13 @@ const AppNavigator = () => {
         {/* <Stack.Screen name="Shop" component={ShopScreen} /> */}
         {/* <Stack.Screen name="Product" component={ProductScreen} /> */}
         {/* <Stack.Screen name="Cart" component={CartScreen} /> */}
-        <Stack.Screen name="OrderTrack" component={OrderTrack} />
         {/* <Stack.Screen name="RegisterBusiness" component={RegisterBusiness} /> */}
         {/* <Stack.Screen name="AddProduct" component={ProductReg} options={{headerShown: false}} /> */}
         {/* <Stack.Screen name="BusinessDashboard" component={BusinessDashboard} /> */}
-        {/* <Stack.Screen name="ProductPage" component={ProductPage} options={{headerShown: false}} /> */}
+        <Stack.Screen name="ProductPage" component={ProductPage} options={{headerShown: false}} />
         {/* <Stack.Screen name="UserCart" component={UserCart} options={{headerShown: false}} /> */}
-        {/* <Stack.Screen name="OrderPage" component={OrderPage} options={{headerShown: false}} /> */}
+        <Stack.Screen name="OrderPage" component={OrderPage} options={{headerShown: false}} />
+        <Stack.Screen name="OrderTrack" component={OrderTrack} />
       {/* </Stack.Navigator> */}
       <Drawer.Navigator initialRouteName='Home'  screenOptions={{
         drawerStyle: {
@@ -82,6 +82,11 @@ const AppNavigator = () => {
         <Drawer.Screen name='Home'  component={HomeScreen} />
         <Drawer.Screen name='Mall' component={MallPage}/>
         <Drawer.Screen name='Business' component={Business} />
+        <Drawer.Screen name='Cart' component={UserCart} />
+        <Drawer.Screen name='Product' component={ProductPage} />
+        <Drawer.Screen name='Order' component={OrderPage} />
+        <Drawer.Screen name='OrderTrack' component={OrderTrack} />
+      
       </Drawer.Navigator>
     </NavigationContainer>
   );

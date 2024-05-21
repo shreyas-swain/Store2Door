@@ -3,9 +3,10 @@ import React from 'react'
 import { colors, veg, nonveg } from '../globals/style'
 
 const Cardslider = ({ data, navigation }) => {
-    const openProductPage = (item) => {
-        navigation.navigate('productpage', item)
+    const openBusiness = (item) => {
+        navigation.navigate('Business', item)
     }
+
     return (
         <View style={styles.container}>
             <FlatList style={styles.cardsout}
@@ -13,13 +14,13 @@ const Cardslider = ({ data, navigation }) => {
                 vertical
                 data={data}
                 renderItem={({ item }) => (
-                    <TouchableOpacity
-                        onPress={() => { openProductPage(item) }}>
+                    <View
+                        >
                         <View style={styles.card}>
                             <View style={styles.s1}>
-                                <Image source={{
-                                    uri: item.pfp
-                                }} style={styles.cardimgin} />
+                                <Image source={ require('../assets/shop.jpeg')
+                                    // uri: 'https://www.google.com/imgres?q=shop%20image&imgurl=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1542715473-63675d7974bd%3Fq%3D80%26w%3D1000%26auto%3Dformat%26fit%3Dcrop%26ixlib%3Drb-4.0.3%26ixid%3DM3wxMjA3fDB8MHxzZWFyY2h8NHx8c21hbGwlMjBzaG9wfGVufDB8fDB8fHww&imgrefurl=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fsmall-shop&docid=IFhC3-7Pdcv4gM&tbnid=lhUmBSRggBkVaM&vet=12ahUKEwjSqbPxgYOGAxXX7TgGHQ6rCu4QM3oECC0QAA..i&w=1000&h=667&hcb=2&ved=2ahUKEwjSqbPxgYOGAxXX7TgGHQ6rCu4QM3oECC0QAA'
+                                } style={styles.cardimgin} />
                             </View>
                             <View style={styles.s2}>
                                 <Text style={styles.txt1}>{item.shopName}</Text>
@@ -29,13 +30,13 @@ const Cardslider = ({ data, navigation }) => {
                                 </View>
                                 <Text style={styles.txt1}>{item.shopAddr}</Text>
                             </View>
-                            <View style={styles.s3}>
+                            <TouchableOpacity style={styles.s3} onPress={() => { openBusiness(item) }}>
                                 <Text style={styles.buybtn}>
                                     Shop
                                 </Text>
-                            </View>
+                            </TouchableOpacity>
                         </View>
-                    </TouchableOpacity>
+                    </View>
                 )}
                 keyExtractor={(item) => item.id.toString()}
             />

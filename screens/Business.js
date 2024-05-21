@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ScrollView, ImageBackground, useWindowDimensions, Image, Pressable, } from "react-native";
+import { StyleSheet, Text, View, ScrollView, ImageBackground, useWindowDimensions, Image, Pressable, TouchableOpacity} from "react-native";
 import { useEffect, useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -25,8 +25,8 @@ const Business = ({route}) => {
       { key: "first", title: "INFO" },
       { key: "second", title: "PRODUCTS" },
     ]);
-    const [storeData, setStoreData] = useState({});
-    const [products, setProducts] = useState([]);
+    const [storeData, setStoreData] = useState({"phnNum":"1234567890"});
+    // const [products, setProducts] = useState([]);
   
     const fetchData = async () => {
         console.log('here')
@@ -41,6 +41,21 @@ const Business = ({route}) => {
       console.log(Data)
       setStoreData(Data.pop());
     };
+    const products = [
+      { 
+        productName: 'Kissan Ketchup',
+        productPfp: require('../assets/Products/kissan.jpeg')
+      },
+      { 
+        productName: 'HeadPhone',
+        productPfp: require('../assets/Products/headphone.jpg')
+      },
+      { 
+        productName: 'Checked Shirt',
+        productPfp: require('../assets/Products/shirt.jpeg')
+      },
+      // Add more dummy data as needed
+    ];
   
     const fetchProducts = async () => {
         const ID = route.params['id'];
@@ -68,15 +83,14 @@ const Business = ({route}) => {
           itemDimension={150}
           data={products}
           renderItem={({ item }) => (
-            <Pressable style={styles.inputView} onPress={()=> navigation.navigate('ProductPage', {product: item})}>
+            <TouchableOpacity style={styles.inputView} onPress={()=> navigation.navigate('Product')}>
               <Image
                 style={styles.pfpImg}
                 source={
-                  item['productPfp'] == null ? require("../assets/defaultPfp.jpg") : { uri: item['productPfp'] }
-                }
+                  item['productPfp']}
               />
               <Text>{item['productName']}</Text>
-            </Pressable>
+            </TouchableOpacity>
           )}
         />
       </ScrollView>
@@ -114,7 +128,7 @@ const Business = ({route}) => {
             size={20}
             color="gray"
           />
-          <Text style={{ fontSize: 19, color: "gray" }}>   {storeData['phnNum']}</Text>
+          <Text style={{ fontSize: 19, color: "gray" }}>1029384756</Text>
         </View>
         <View style={{ margin: 10 }}>
           <Text style={{ fontSize: 18, color: "gray" }}>Description:</Text>
@@ -193,12 +207,14 @@ const Business = ({route}) => {
         >
           <View>
             <Text style={{ fontSize: 25, fontWeight: "bold" }}>
-              {storeData["shopName"] == "" ? "Shop Name" : storeData["shopName"]}
+              {/* {storeData["shopName"] == "" ? "Shop Name" : storeData["shopName"]} */}
               {/* shopName */}
+              Sid Shop
             </Text>
             <Text style={{ fontSize: 14, color: "gray" }}>
-              {storeData["mallName"] == "" ? "Mall Name" : storeData["mallName"]}
+              {/* {storeData["mallName"] == "" ? "Mall Name" : storeData["mallName"]} */}
               {/* mallName */}
+              Esplanade
             </Text>
             <View style={{ marginTop: 10, flexDirection: "row", gap: 10 }}>
               <View style={{ flexDirection: "row" }}>

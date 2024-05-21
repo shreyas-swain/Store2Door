@@ -7,12 +7,22 @@ import { incdecbtn, incdecinput, incdecout } from "../globals/style";
   
 const ProductPage = ({ navigation, route }) => {  
     
-    const [product, setProduct] = useState({})
+    // const [product, setProduct] = useState({})
     
-    useEffect(()=>{
-        setProduct(route.params['product'])
-        // console.log(product)
-    })
+    const product = 
+      { 
+        productName: 'Kissan Ketchup',
+        productPfp: require('../assets/Products/kissan.jpeg'),
+        productPrice: 100,
+        productDesc: "Thi is a ketchup"
+      };
+      // Add more dummy data as needed
+
+
+    // useEffect(()=>{
+    //     setProduct(route.params['product'])
+    //     // console.log(product)
+    // })
 
     return (
       <ScrollView style={styles.container}>
@@ -29,10 +39,7 @@ const ProductPage = ({ navigation, route }) => {
           {/* product image */}
           <View style={styles.s1}>
             <Image
-              source={{
-                uri: data.foodImageUrl,
-                uri: product['productPfp'],
-              }}
+              source={product['productPfp']}
               style={styles.cardimgin}
             />
           </View>
@@ -91,7 +98,7 @@ const ProductPage = ({ navigation, route }) => {
               <TouchableOpacity style={btn2}>
                 <Text
                   style={styles.btntxt}
-                  onPress={() => navigation.navigate("OrderPage", {product: product})}
+                  onPress={() => navigation.navigate("Order", {product: product})}
                 >
                   Buy Now
                 </Text>
